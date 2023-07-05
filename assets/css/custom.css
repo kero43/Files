@@ -1,0 +1,29 @@
+body * {
+  outline: none;
+}
+
+/* modal */
+
+.dark-modal .modal-content {
+  background-color: #000000;
+  color: white;
+  background: none;
+  border: none;
+}
+
+.dark-modal .modal-header {
+  margin-left: auto;
+  border: none;
+  padding: 0 !important;
+}
+
+.dark-modal .close {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 25px;
+}
+
+.icons {
+  line-height: 1;
+}
