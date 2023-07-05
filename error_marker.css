@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="google-site-verification" content="Epa_VhwsgCX67nDJXWal0pXrDhgqzge94HtuvjB4Nvw"/>
+    <base href="/"/>
+    <title>AlmavivA Egitto Visa Services</title>
+
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Main Css -->
+    <link href="./assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt"/>
+    <link href="./assets/css/colors/default.css" type="text/css" rel="stylesheet" id="color-opt"/>
+    <link href="./assets/css/custom.css" type="text/css" rel="stylesheet"/>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/images/favicon.png"/>
+  <link rel="stylesheet" href="styles.5d9de37338675fab0ebe.css"></head>
+
+  <body>
+    <script type="text/javascript" id="error-callback">
+      function errorCallback(error) {
+        console.log(JSON.stringify(error));
+        document.dispatchEvent(new Event("payment-error", { bubbles: true }));
+      }
+    </script>
+    <script type="text/javascript" id="cancel-callback">
+      function cancelCallback() {
+        document.dispatchEvent(new Event("payment-cancel", { bubbles: true }));
+      }
+    </script>
+    <script type="text/javascript" id="confirm-callback">
+      function confirmCallback(resultIndicator, sessionVersion) {
+        console.log(resultIndicator, sessionVersion);
+        let event = new CustomEvent("payment-confirm", {
+          bubbles: true,
+          detail: resultIndicator,
+        });
+        document.dispatchEvent(event);
+      }
+    </script>
+    <!--  <script
+      src="//code.tidio.co/j4f8pcy8rg4q7gsmewqr84q7uzku8zwi.js"
+      async
+    ></script> -->
+    <app-root></app-root>
+  <script src="runtime-es2015.685f9ae36cd6fe080fd1.js" type="module"></script><script src="runtime-es5.685f9ae36cd6fe080fd1.js" nomodule defer></script><script src="polyfills-es5.cff11bbc5b4847c41349.js" nomodule defer></script><script src="polyfills-es2015.d7b7e05fc833e4b05ccd.js" type="module"></script><script src="main-es2015.d2907ffcf0e73b654578.js" type="module"></script><script src="main-es5.d2907ffcf0e73b654578.js" nomodule defer></script></body>
+</html>
