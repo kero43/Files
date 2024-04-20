@@ -821,7 +821,7 @@
 				for (let P = 0; P < this.visasAt(m).value.quantity; P++){
 				p.push(this.visasAt(m).value.visaId);}}
 				console.log('hhhhhh');
-                this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION)(this.token).pipe((0,
+                this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION).pipe((0,
                 T.P)(), (0,
                 Ne.z)(m=>p.length > 1 ? this.officeService.checkSlotAvailableGroup(t, p, o, m) : this.officeService.checkSlotAvailable(t, this.visasAt(0).value.visaId, o, m)), (0,
                 D.b)(m=>{
