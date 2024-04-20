@@ -809,7 +809,6 @@
                 this.visas.at(t).get("quantity").setValue(n)
             }
             nextStep() {
-				console.log('kkkkk' , this.recaptchaV3Service);
                 this.appointmentForm[0].markAllAsTouched();
                 const n = this.appointmentForm[0].controls.tripDate.value
                   , t = this.appointmentForm[0].controls.officeId.value
@@ -817,10 +816,10 @@
                 Be()(n).format("YYYY-MM-DD");
                 let p = [];
 				console.log('ddddddd');
-                for (let m = 0; m < this.visas.length; m++){
-				for (let P = 0; P < this.visasAt(m).value.quantity; P++){
-				p.push(this.visasAt(m).value.visaId);}}
-				console.log('hhhhhh');
+                for (let m = 0; m < this.visas.length; m++)
+				for (let P = 0; P < this.visasAt(m).value.quantity; P++)
+				p.push(this.visasAt(m).value.visaId);
+				console.log('hhhhhh', this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION));
                 this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION).pipe((0,
                 T.P)(), (0,
                 Ne.z)(m=>p.length > 1 ? this.officeService.checkSlotAvailableGroup(t, p, o, m) : this.officeService.checkSlotAvailable(t, this.visasAt(0).value.visaId, o, m)), (0,
