@@ -743,22 +743,7 @@
                     this.dateOffset = o.minDaysVisa
                 }
                 )),
-                this.emailGroups = this.configurationService.getEmailGroups(),
-                grecaptcha.ready(()=>{
-                    try {
-                        this.captcha = grecaptcha.render("html_element", {
-                            sitekey: t.sitekey,
-                            action: this.CHECKS_CAPTCHA_ACTION,
-                            callback: ()=>{
-                                const o = grecaptcha.getResponse();
-                                "" !== o && (this.token = o)
-                            }
-                        })
-                    } catch (o) {
-                        console.log("error", o)
-                    }
-                }
-                )
+                this.emailGroups = this.configurationService.getEmailGroups()
             }
             setCalendarLocale(n) {
                 switch (n.id) {
