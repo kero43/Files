@@ -743,7 +743,22 @@
                     this.dateOffset = o.minDaysVisa
                 }
                 )),
-                this.emailGroups = this.configurationService.getEmailGroups()
+                this.emailGroups = this.configurationService.getEmailGroups(),
+                grecaptcha.ready(()=>{
+                    try {
+                        this.captcha = grecaptcha.render("html_element", {
+                            sitekey: t.sitekey,
+                            action: this.CHECKS_CAPTCHA_ACTION,
+                            callback: ()=>{
+                                const o = grecaptcha.getResponse();
+                                "" !== o && (this.token = o)
+                            }
+                        })
+                    } catch (o) {
+                        console.log("error", o)
+                    }
+                }
+                )
             }
             setCalendarLocale(n) {
                 switch (n.id) {
@@ -794,16 +809,19 @@
                 this.visas.at(t).get("quantity").setValue(n)
             }
             nextStep() {
+				console.log('kkkkk' , this.recaptchaV3Service);
                 this.appointmentForm[0].markAllAsTouched();
                 const n = this.appointmentForm[0].controls.tripDate.value
                   , t = this.appointmentForm[0].controls.officeId.value
                   , o = this.appointmentForm[0].controls.idServiceLevel.value.serviceLevelId;
                 Be()(n).format("YYYY-MM-DD");
                 let p = [];
-                for (let m = 0; m < this.visas.length; m++)
-                    for (let P = 0; P < this.visasAt(m).value.quantity; P++)
-                        p.push(this.visasAt(m).value.visaId);
-                this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION).pipe((0,
+				console.log('ddddddd');
+                for (let m = 0; m < this.visas.length; m++){
+				for (let P = 0; P < this.visasAt(m).value.quantity; P++){
+				p.push(this.visasAt(m).value.visaId);}}
+				console.log('hhhhhh');
+                this.recaptchaV3Service.execute(this.CHECKS_CAPTCHA_ACTION)(this.token).pipe((0,
                 T.P)(), (0,
                 Ne.z)(m=>p.length > 1 ? this.officeService.checkSlotAvailableGroup(t, p, o, m) : this.officeService.checkSlotAvailable(t, this.visasAt(0).value.visaId, o, m)), (0,
                 D.b)(m=>{
